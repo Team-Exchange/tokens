@@ -32,44 +32,39 @@
                 <div class="row">
                     <div class="col-md-3 ico">
                         <button v-on:click="connectTeam">
-                            <img src="images/blacnk.JPG" alt="TEAM" />
+                            <img style="object-fit: contain;"src="images/round-team-logo.63bf8d93.png" alt="TEAM" />
                         </button>
                     </div>
                     <div class="col-md-3 ico">
                         <button v-on:click="connectSLP">
-                            <img src="images/SLP.JPG" alt="SLP" />
+                            <img src="https://assets.coingecko.com/coins/images/10366/large/SLP.png" alt="SLP" />
                         </button>
                     </div>
                     <div class="col-md-3 ico">
                         <button v-on:click="connectAXS">
-                            <img src="images/AXS.JPG" alt="AXS" />
+                            <img src="images/axie-infinity-axs-logo.png" alt="AXS" />
                         </button>
                     </div>
                     <div class="col-md-3 ico">
                         <button v-on:click="connectRevv">
-                            <img src="images/REVV.JPG" alt="AXS" />
+                            <img src="images/revv.png" alt="AXS" />
                         </button>
                     </div>
                 </div>
-                <div class="row mt-4">
+                <div class="row mt-4 justify-content-center">
                     <div class="col-md-3 ico">
                         <button v-on:click="connectSand">
-                            <img src="images/SAND.JPG" alt="TEAM" />
-                        </button>
-                    </div>
-                    <div class="col-md-3 ico">
-                        <button v-on:click="connectMBX">
-                            <img src="images/blacnk.JPG" alt="MBX" />
+                            <img src="images/the-sandbox-sand-logo.png" alt="TEAM" />
                         </button>
                     </div>
                     <div class="col-md-3 ico">
                         <button v-on:click="connectAPE">
-                            <img src="images/APE.JPG" alt="APE" />
+                            <img src="images/apecoin-ape-ape-logo.png" alt="APE" />
                         </button>
                     </div>
                     <div class="col-md-3 ico">
                         <button v-on:click="connectPRIMATE">
-                            <img src="images/blacnk.JPG" alt="PRIMATE" />
+                            <img src="images/primate.png" alt="PRIMATE" />
                         </button>
                     </div>
                 </div>
@@ -85,6 +80,13 @@
                         </button>
                     </div>
                 </div> -->
+                <div class="row mt-3 justify-content-center">
+                    <div class="col-md-3 ico">
+                        <button v-on:click="connectMBX">
+                            <img src="images/mbx.png" alt="MBX" />
+                        </button>
+                    </div>
+                </div>
                 <div class="title text-center mb-4 mt-3">
                     <h2>+ ADD TOKEN TO METAMASK</h2>
                 </div>
@@ -120,12 +122,6 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="token-name">MBX</div>
-                        <div class="token-desc">
-                            0x71ba91dc68c6a206db0a6a92b4b1de3f9271432d
-                        </div>
-                    </div>
-                    <div class="item">
                         <div class="token-name">APE</div>
                         <div class="token-desc">
                             0x4d224452801aced8b2f0aebe155379bb5d594381
@@ -135,6 +131,13 @@
                         <div class="token-name">PRIMATE</div>
                         <div class="token-desc">
                             0x46e98FFE40E408bA6412bEb670507e083C8B95ff
+                        </div>
+                    </div>
+                    <br>
+                    <div class="item">
+                        <div class="token-name">MBX</div>
+                        <div class="token-desc">
+                            0xd068c52d81f4409b9502da926ace3301cc41f623
                         </div>
                     </div>
                     <!-- <div class="item">
@@ -221,23 +224,37 @@
                 );
             },
             connectTeam: function (event) {
-                web3.currentProvider.sendAsync(
-                {
-                    method: "metamask_watchAsset",
+                // web3.currentProvider.sendAsync(
+                // {
+                //     method: "metamask_watchAsset",
+                //     params: {
+                //         type: "ERC20",
+                //         options: {
+                //             address: "0x84f93cc4dc3ebe0e4f80de867916de26ad1ea002",
+                //             symbol: "TEAM",
+                //             decimals: 8,
+                //             image:
+                //             "https://raw.githubusercontent.com/Team-Exchange/icons/master/TE_SMALL.png",
+                //         },
+                //     },
+                //     id: 20,
+                // },
+                // console.log
+                // );
+                alert("Coming Soon");
+                web3.currentProvider.sendAsync({
+                    method: 'metamask_watchAsset',
                     params: {
-                        type: "ERC20",
-                        options: {
-                            address: "0x84f93cc4dc3ebe0e4f80de867916de26ad1ea002",
-                            symbol: "TEAM",
-                            decimals: 8,
-                            image:
-                            "https://raw.githubusercontent.com/Team-Exchange/icons/master/TE_SMALL.png",
+                        "type": "ERC20",
+                        "options": {
+                            "address": "0x84f93cc4dc3ebe0e4f80de867916de26ad1ea002",
+                            "symbol": "TEAM",
+                            "decimals": 8,
+                            "image": 'https://raw.githubusercontent.com/Team-Exchange/icons/master/TE_SMALL.png'
                         },
                     },
                     id: 20,
-                },
-                console.log
-                );
+                }, console.log)  
             },
             connectRevv: function (event) {
                 web3.currentProvider.sendAsync(
@@ -284,10 +301,10 @@
                     params: {
                         type: "ERC20",
                         options: {
-                            address: "0x71ba91dc68c6a206db0a6a92b4b1de3f9271432d",
+                            address: "0xd068c52d81f4409b9502da926ace3301cc41f623",
                             symbol: "MBX",
                             decimals: 18,
-                            image: "https://etherscan.io/token/images/mobiepay_32.png",
+                            image: "https://s2.coinmarketcap.com/static/img/coins/64x64/18895.png",
                         },
                     },
                     id: 20,
