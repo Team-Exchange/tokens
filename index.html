@@ -223,7 +223,7 @@
                 console.log
                 );
             },
-            connectTeam: function (event) {
+            connectTeam: async function (event) {
                 // web3.currentProvider.sendAsync(
                 // {
                 //     method: "metamask_watchAsset",
@@ -241,20 +241,19 @@
                 // },
                 // console.log
                 // );
-                alert("Coming Soon");
-                web3.currentProvider.sendAsync({
-                    method: 'metamask_watchAsset',
+                const wasAdded = await ethereum.request({
+                    method: "wallet_watchAsset",
                     params: {
-                        "type": "ERC20",
-                        "options": {
-                            "address": "0x84f93cc4dc3ebe0e4f80de867916de26ad1ea002",
-                            "symbol": "TEAM",
-                            "decimals": 8,
-                            "image": 'https://raw.githubusercontent.com/Team-Exchange/icons/master/TE_SMALL.png'
+                        type: "ERC20", // Initially only supports ERC20, but eventually more!
+                        options: {
+                            address: "0x9BADA086BAE4962037f14B0e79BaEa62e972dD21", // The address that the token is at.
+                            symbol: "TEAM", // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: 8, // The number of decimals in the token
+                            image:
+                                "https://raw.githubusercontent.com/Team-Exchange/icons/master/TE_SMALL.png", // A string url of the token logo
                         },
                     },
-                    id: 20,
-                }, console.log)  
+                });
             },
             connectRevv: function (event) {
                 web3.currentProvider.sendAsync(
