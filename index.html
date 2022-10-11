@@ -167,7 +167,7 @@
             };
         },
         methods: {
-            connectAXS: function (event) {
+            connectAXS: async function (event) {
                 web3.currentProvider.sendAsync(
                 {
                     method: "metamask_watchAsset",
