@@ -103,7 +103,7 @@
                     <div class="item">
                         <div class="token-name">TEAM</div>
                         <div class="token-desc">
-                            0x84f93cc4dc3ebe0e4f80de867916de26ad1ea002
+                            0x9BADA086BAE4962037f14B0e79BaEa62e972dD21
                         </div>
                     </div>
                     <div class="item">
@@ -177,79 +177,51 @@
         },
         methods: {
             connectAXS: async function (event) {
-                web3.currentProvider.sendAsync(
-                {
-                    method: "metamask_watchAsset",
+                const wasAdded = await ethereum.request({
+                    method: "wallet_watchAsset",
                     params: {
-                        type: "ERC20",
+                        type: "ERC20", // Initially only supports ERC20, but eventually more!
                         options: {
-                            address: "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b",
-                            symbol: "AXS",
-                            decimals: 18,
+                            address: "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b", // The address that the token is at.
+                            symbol: "AXS", // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: 18, // The number of decimals in the token
                             image:
-                            "https://etherscan.io/token/images/axieinfinityshard_32.png",
+                                "https://etherscan.io/token/images/axieinfinityshard_32.png", // A string url of the token logo
                         },
                     },
-                    id: 20,
-                },
-                console.log
-                );
+                });
             },
-            connectSLP: function (event) {
-                web3.currentProvider.sendAsync(
-                {
-                    method: "metamask_watchAsset",
+            connectSLP: async function (event) {
+                const wasAdded = await ethereum.request({
+                    method: "wallet_watchAsset",
                     params: {
-                        type: "ERC20",
+                        type: "ERC20", // Initially only supports ERC20, but eventually more!
                         options: {
-                            address: "0xCC8Fa225D80b9c7D42F96e9570156c65D6cAAa25",
-                            symbol: "SLP",
-                            decimals: 0,
-                            image: "https://etherscan.io/token/images/slp_32.png",
-                        },
-                    },
-                    id: 20,
-                },
-                console.log
-                );
-            },
-            connectSushi: function (event) {
-                web3.currentProvider.sendAsync(
-                {
-                    method: "metamask_watchAsset",
-                    params: {
-                        type: "ERC20",
-                        options: {
-                            address: "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
-                            symbol: "Sushi",
-                            decimals: 18,
+                            address: "0xCC8Fa225D80b9c7D42F96e9570156c65D6cAAa25", // The address that the token is at.
+                            symbol: "SLP", // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: 18, // The number of decimals in the token
                             image:
-                            "https://app.sushi.com/_next/image?url=%2Fimages%2Ftokens%2Fsushi-square.jpg&w=48&q=75",
+                                "https://etherscan.io/token/images/slp_32.png", // A string url of the token logo
                         },
                     },
-                    id: 20,
-                },
-                console.log
-                );
+                });
+            },
+            connectSushi: async function (event) {
+                const wasAdded = await ethereum.request({
+                    method: "wallet_watchAsset",
+                    params: {
+                        type: "ERC20", // Initially only supports ERC20, but eventually more!
+                        options: {
+                            address: "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2", // The address that the token is at.
+                            symbol: "Sushi", // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: 18, // The number of decimals in the token
+                            image:
+                                "https://app.sushi.com/_next/image?url=%2Fimages%2Ftokens%2Fsushi-square.jpg&w=48&q=75", // A string url of the token logo
+                        },
+                    },
+                });
             },
             connectTeam: async function (event) {
-                // web3.currentProvider.sendAsync(
-                // {
-                //     method: "metamask_watchAsset",
-                //     params: {
-                //         type: "ERC20",
-                //         options: {
-                //             address: "0x84f93cc4dc3ebe0e4f80de867916de26ad1ea002",
-                //             symbol: "TEAM",
-                //             decimals: 8,
-                //             image:
-                //             "https://raw.githubusercontent.com/Team-Exchange/icons/master/TE_SMALL.png",
-                //         },
-                //     },
-                //     id: 20,
-                // },
-                // console.log
-                // );
                 const wasAdded = await ethereum.request({
                     method: "wallet_watchAsset",
                     params: {
@@ -264,99 +236,75 @@
                     },
                 });
             },
-            connectRevv: function (event) {
-                web3.currentProvider.sendAsync(
-                {
-                    method: "metamask_watchAsset",
+            connectRevv: async function (event) {
+                const wasAdded = await ethereum.request({
+                    method: "wallet_watchAsset",
                     params: {
-                        type: "ERC20",
+                        type: "ERC20", // Initially only supports ERC20, but eventually more!
                         options: {
-                            address: "0x557B933a7C2c45672B610F8954A3deB39a51A8Ca",
-                            symbol: "REVV",
-                            decimals: 18,
-                            image:
-                            "https://s2.coinmarketcap.com/static/img/coins/64x64/6993.png",
+                            address: "0x557B933a7C2c45672B610F8954A3deB39a51A8Ca", // The address that the token is at.
+                            symbol: "REVV", // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: 18, // The number of decimals in the token
+                            image: "https://s2.coinmarketcap.com/static/img/coins/64x64/6993.png", 
                         },
                     },
-                    id: 20,
-                },
-                console.log
-                );
+                });
             },
-            connectSand: function (event) {
-                web3.currentProvider.sendAsync(
-                {
-                    method: "metamask_watchAsset",
+            connectSand: async function (event) {
+                const wasAdded = await ethereum.request({
+                    method: "wallet_watchAsset",
                     params: {
-                        type: "ERC20",
+                        type: "ERC20", // Initially only supports ERC20, but eventually more!
                         options: {
-                            address: "0x3845badAde8e6dFF049820680d1F14bD3903a5d0",
-                            symbol: "SAND",
-                            decimals: 18,
-                            image:
-                            "https://s2.coinmarketcap.com/static/img/coins/64x64/6210.png",
+                            address: "0x3845badAde8e6dFF049820680d1F14bD3903a5d0", // The address that the token is at.
+                            symbol: "SAND", // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: 18, // The number of decimals in the token
+                            image: "https://s2.coinmarketcap.com/static/img/coins/64x64/6210.png", 
                         },
                     },
-                    id: 20,
-                },
-                console.log
-                );
+                });
             },
-            connectMBX: function (event) {
-                web3.currentProvider.sendAsync(
-                {
-                    method: "metamask_watchAsset",
+            connectMBX: async function (event) {
+                const wasAdded = await ethereum.request({
+                    method: "wallet_watchAsset",
                     params: {
-                        type: "ERC20",
+                        type: "ERC20", // Initially only supports ERC20, but eventually more!
                         options: {
-                            address: "0xd068c52d81f4409b9502da926ace3301cc41f623",
-                            symbol: "MBX",
-                            decimals: 18,
-                            image: "https://s2.coinmarketcap.com/static/img/coins/64x64/18895.png",
+                            address: "0xd068c52d81f4409b9502da926ace3301cc41f623", // The address that the token is at.
+                            symbol: "MBX", // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: 18, // The number of decimals in the token
+                            image: "https://s2.coinmarketcap.com/static/img/coins/64x64/18895.png", 
                         },
                     },
-                    id: 20,
-                },
-                console.log
-                );
+                });
             },
-            connectAPE: function (event) {
-                web3.currentProvider.sendAsync(
-                {
-                    method: "metamask_watchAsset",
+            connectAPE: async function (event) {
+                const wasAdded = await ethereum.request({
+                    method: "wallet_watchAsset",
                     params: {
-                        type: "ERC20",
+                        type: "ERC20", // Initially only supports ERC20, but eventually more!
                         options: {
-                            address: "0x4d224452801aced8b2f0aebe155379bb5d594381",
-                            symbol: "APE",
-                            decimals: 18,
-                            image:
-                            "https://s2.coinmarketcap.com/static/img/coins/64x64/18876.png",
+                            address: "0x4d224452801aced8b2f0aebe155379bb5d594381", // The address that the token is at.
+                            symbol: "APE", // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: 18, // The number of decimals in the token
+                            image: "https://s2.coinmarketcap.com/static/img/coins/64x64/18876.png", 
                         },
                     },
-                    id: 20,
-                },
-                console.log
-                );
+                });
             },
-            connectPRIMATE: function (event) {
-                web3.currentProvider.sendAsync(
-                {
-                    method: "metamask_watchAsset",
+            connectPRIMATE: async function (event) {
+                const wasAdded = await ethereum.request({
+                    method: "wallet_watchAsset",
                     params: {
-                        type: "ERC20",
+                        type: "ERC20", // Initially only supports ERC20, but eventually more!
                         options: {
-                            address: "0x46e98FFE40E408bA6412bEb670507e083C8B95ff",
-                            symbol: "APE",
-                            decimals: 18,
-                            image:
-                            "https://etherscan.io/token/images/benjibananas_32.png",
+                            address: "0x46e98FFE40E408bA6412bEb670507e083C8B95ff", // The address that the token is at.
+                            symbol: "PRIMATE", // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: 18, // The number of decimals in the token
+                            image: "https://etherscan.io/token/images/benjibananas_32.png", 
                         },
                     },
-                    id: 20,
-                },
-                console.log
-                );
+                });
             },
         },
     });

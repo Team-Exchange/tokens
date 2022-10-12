@@ -68,12 +68,19 @@ footer{
 @media (max-width: 760px){
     .app{
         max-width: 100%;
+        padding: 10px;
     }
 }
 
 @media (max-width: 456px){
     .tokens .text {
         font-size: 13px;
+    }
+    .app .col-md-3{
+        width: 50%;
+    }
+    .app .ico{
+        margin-bottom: 18px;;
     }
 }
 .ico button{
