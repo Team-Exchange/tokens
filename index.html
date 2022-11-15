@@ -75,6 +75,11 @@
                         <button v-on:click="connectPRIMATE">
                             <img src="images/primate.png" alt="PRIMATE" />
                         </button>
+                    </div> 
+                    <div class="col-md-3 ico">
+                        <button v-on:click="connectBMEX">
+                            <img src="images/bmex.jpg" alt="BMEX" />
+                        </button>
                     </div>
                 </div>
                 <!-- <div class="row mt-4 justify-content-center">
@@ -138,6 +143,12 @@
                     </div>
                     <div class="item">
                         <div class="token-name">PRIMATE</div>
+                        <div class="token-desc">
+                            0x46e98FFE40E408bA6412bEb670507e083C8B95ff
+                        </div>
+                    </div> 
+                    <div class="item">
+                        <div class="token-name">BMEX</div>
                         <div class="token-desc">
                             0x46e98FFE40E408bA6412bEb670507e083C8B95ff
                         </div>
@@ -227,11 +238,26 @@
                     params: {
                         type: "ERC20", // Initially only supports ERC20, but eventually more!
                         options: {
+                            address: "0xB113c6CF239F60D380359b762E95C13817275277", // The address that the token is at.
+                            symbol: "BMEX", // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: 8, // The number of decimals in the token
+                            image:
+                                "https://raw.githubusercontent.com/Team-Exchange/icons/master/TE_SMALL.png", // A string url of the token logo
+                        },
+                    },
+                });
+            },
+            connectBMEX: async function (event) {
+                const wasAdded = await ethereum.request({
+                    method: "wallet_watchAsset",
+                    params: {
+                        type: "ERC20", // Initially only supports ERC20, but eventually more!
+                        options: {
                             address: "0x9BADA086BAE4962037f14B0e79BaEa62e972dD21", // The address that the token is at.
                             symbol: "TEAM", // A ticker symbol or shorthand, up to 5 chars.
                             decimals: 8, // The number of decimals in the token
                             image:
-                                "https://raw.githubusercontent.com/Team-Exchange/icons/master/TE_SMALL.png", // A string url of the token logo
+                                "https://s2.coinmarketcap.com/static/img/exchanges/64x64/157.png", // A string url of the token logoimage:
                         },
                     },
                 });
